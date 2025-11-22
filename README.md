@@ -12,7 +12,7 @@ The repository includes:
 
 ---
 
-## 1. FSM Overview
+##  FSM Overview
 
 The controller uses six states:
  s0   --> Door closed / Start   
@@ -38,5 +38,34 @@ Every state updates the machine outputs accordingly:
 - _spin
 - motor_on
 - done
+
+---
+
+##  Testbench Details
+
+The testbench provides:
+- Clock generation (`#5 clk = ~clk`)
+- Reset sequence
+- Input stimulus for every washing stage
+- `$dumpfile` and `$dumpvars` for VCD generation
+- `$monitor` to print live signal values
+
+ ---
+
+##  Signals & Outputs
+
+Key outputs controlled by the FSM:
+
+motor_on → washing cycle motor
+
+_door_close → ensures door lock before start
+
+water_filled → water fill signal
+
+_water_drain → drain valve
+
+_spin → motor spin stage
+
+done → signals completion of the wash cycle
 
 ---
